@@ -18,6 +18,9 @@ pkgs.mkShellNoCC {
 		llvmPackages.bintools
 
 		openssl
+
+		mdbook
+		mdbook-mermaid
 	] ++ pkgs.lib.optionals (pkgs.stdenv.isLinux) [
 		systemd
 		linux-pam
