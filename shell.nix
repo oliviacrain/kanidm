@@ -3,9 +3,9 @@ let
 in
 { pkgs ? import <nixpkgs> { overlays = [ rust-overlay ]; } }:
 let
-  rust-toolchain = (pkgs.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml).override {
+  rust-toolchain = (pkgs.rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
 		  extensions = [ "rust-src" "rust-analyzer" ];
-		};
+		}));
 in
 pkgs.mkShellNoCC {
 	# Kanidm dependencies
